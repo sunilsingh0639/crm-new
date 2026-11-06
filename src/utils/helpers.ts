@@ -26,30 +26,30 @@ export const getInitials = (name: string) =>
 
 export const getStatusColor = (status: string) => {
   const map: Record<string, string> = {
-    active: 'text-emerald-400 bg-emerald-400/10',
-    inactive: 'text-slate-400 bg-slate-400/10',
-    away: 'text-amber-400 bg-amber-400/10',
-    completed: 'text-emerald-400 bg-emerald-400/10',
-    'in-progress': 'text-blue-400 bg-blue-400/10',
-    planning: 'text-purple-400 bg-purple-400/10',
-    'on-hold': 'text-amber-400 bg-amber-400/10',
-    todo: 'text-slate-400 bg-slate-400/10',
-    review: 'text-cyan-400 bg-cyan-400/10',
-    converted: 'text-emerald-400 bg-emerald-400/10',
-    lost: 'text-red-400 bg-red-400/10',
-    new: 'text-blue-400 bg-blue-400/10',
-    contacted: 'text-cyan-400 bg-cyan-400/10',
-    qualified: 'text-purple-400 bg-purple-400/10',
-    proposal: 'text-amber-400 bg-amber-400/10',
-    negotiation: 'text-orange-400 bg-orange-400/10',
-    pending: 'text-amber-400 bg-amber-400/10',
-    failed: 'text-red-400 bg-red-400/10',
-    critical: 'text-red-400 bg-red-400/10',
-    high: 'text-orange-400 bg-orange-400/10',
-    medium: 'text-amber-400 bg-amber-400/10',
-    low: 'text-emerald-400 bg-emerald-400/10',
+    active:       'text-emerald-300 bg-emerald-500/12 border-emerald-500/25',
+    inactive:     'text-slate-400   bg-slate-500/12   border-slate-500/20',
+    away:         'text-amber-300   bg-amber-500/12   border-amber-500/25',
+    completed:    'text-emerald-300 bg-emerald-500/12 border-emerald-500/25',
+    'in-progress':'text-blue-300    bg-blue-500/12    border-blue-500/25',
+    planning:     'text-violet-300  bg-violet-500/12  border-violet-500/25',
+    'on-hold':    'text-amber-300   bg-amber-500/12   border-amber-500/25',
+    todo:         'text-slate-400   bg-slate-500/12   border-slate-500/20',
+    review:       'text-cyan-300    bg-cyan-500/12    border-cyan-500/25',
+    converted:    'text-emerald-300 bg-emerald-500/12 border-emerald-500/25',
+    lost:         'text-red-300     bg-red-500/12     border-red-500/25',
+    new:          'text-blue-300    bg-blue-500/12    border-blue-500/25',
+    contacted:    'text-cyan-300    bg-cyan-500/12    border-cyan-500/25',
+    qualified:    'text-violet-300  bg-violet-500/12  border-violet-500/25',
+    proposal:     'text-amber-300   bg-amber-500/12   border-amber-500/25',
+    negotiation:  'text-orange-300  bg-orange-500/12  border-orange-500/25',
+    pending:      'text-amber-300   bg-amber-500/12   border-amber-500/25',
+    failed:       'text-red-300     bg-red-500/12     border-red-500/25',
+    critical:     'text-red-300     bg-red-500/12     border-red-500/25',
+    high:         'text-orange-300  bg-orange-500/12  border-orange-500/25',
+    medium:       'text-amber-300   bg-amber-500/12   border-amber-500/25',
+    low:          'text-emerald-300 bg-emerald-500/12 border-emerald-500/25',
   };
-  return map[status] ?? 'text-slate-400 bg-slate-400/10';
+  return map[status] ?? 'text-slate-400 bg-slate-500/12 border-slate-500/20';
 };
 
 export const getPriorityColor = (priority: string) => {
