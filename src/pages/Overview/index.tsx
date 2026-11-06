@@ -166,11 +166,11 @@ export default function Overview() {
             whileHover={{ y: -4, transition: { duration: 0.25 } }}
             className="relative overflow-hidden rounded-[20px] p-5 cursor-default"
             style={{
-              background: 'rgba(255,255,255,0.06)',
+              background: 'linear-gradient(135deg, rgba(255,255,255,0.19), rgba(255,255,255,0.045) 48%, rgba(255,255,255,0.075))',
               backdropFilter: 'blur(24px) saturate(180%)',
               WebkitBackdropFilter: 'blur(24px) saturate(180%)',
               border: '1px solid rgba(255,255,255,0.12)',
-              boxShadow: `0 8px 32px rgba(0,0,0,0.30), 0 0 60px ${card.cardGlow}, inset 0 1px 0 rgba(255,255,255,0.12)`,
+              boxShadow: `0 18px 45px rgba(0,0,0,0.30), 0 0 60px ${card.cardGlow}, inset 0 1px 0 rgba(255,255,255,0.28), inset 0 -1px 0 rgba(20,35,70,0.25)`,
             }}
           >
             {/* Top highlight */}

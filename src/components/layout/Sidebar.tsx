@@ -8,6 +8,11 @@ import {
 import { useStore } from '../../store/useStore';
 import { Avatar } from '../common/Avatar';
 
+interface SidebarProps {
+  mobileOpen?: boolean;
+  onClose?: () => void;
+}
+
 const navItems = [
   { path: '/',           icon: LayoutDashboard, label: 'Overview' },
   { path: '/analytics',  icon: BarChart3,        label: 'Analytics' },
@@ -22,7 +27,7 @@ const navItems = [
   { path: '/settings',   icon: Settings,         label: 'Settings' },
 ];
 
-export function Sidebar() {
+export function Sidebar({ mobileOpen = false, onClose }: SidebarProps) {
   const { sidebarCollapsed, setSidebarCollapsed, userProfile } = useStore();
   const location = useLocation();
 
@@ -30,7 +35,7 @@ export function Sidebar() {
     <motion.aside
       animate={{ width: sidebarCollapsed ? 72 : 244 }}
       transition={{ type: 'spring', damping: 28, stiffness: 220 }}
-      className="fixed left-0 top-0 h-full z-50 flex flex-col overflow-hidden"
+      className={`app-sidebar fixed left-0 top-0 h-full z-50 flex flex-col overflow-hidden ${mobileOpen ? 'mobile-sidebar-open' : ''}`}
       style={{
         background: 'var(--glass-floating-bg)',
         backdropFilter: 'blur(40px) saturate(180%)',
@@ -91,6 +96,7 @@ export function Sidebar() {
               to={path}
               title={sidebarCollapsed ? label : undefined}
               className="block"
+              onClick={onClose}
             >
               <motion.div
                 whileHover={{ x: 2 }}
@@ -188,6 +194,7 @@ export function Sidebar() {
           : <ChevronLeft  size={13} className="text-slate-300" />
         }
       </motion.button>
+      {mobileOpen && <button aria-label="Close navigation" className="mobile-sidebar-backdrop" onClick={onClose} />}
     </motion.aside>
   );
 }

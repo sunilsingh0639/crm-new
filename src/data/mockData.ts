@@ -89,11 +89,11 @@ export const defaultUserProfile: UserProfile = {
 };
 
 export const defaultTheme: ThemeSettings = {
-  theme: 'dark',
+  theme: 'liquid',
   accent: '139 92 246',
   accentSecondary: '59 130 246',
-  glassBlur: 20,
-  borderRadius: 16,
+  glassBlur: 24,
+  borderRadius: 18,
   shadowIntensity: 0.4,
   sidebarStyle: 'glass',
   cardSpacing: 'normal',

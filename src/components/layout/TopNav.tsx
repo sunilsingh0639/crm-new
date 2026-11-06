@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Search, Bell, Sun, Moon, Sparkles, Plus, ChevronRight,
-  X, LogOut, User, Settings, HelpCircle, Palette
+  X, LogOut, User, Settings, HelpCircle,   Palette, Menu
 } from 'lucide-react';
 import { useStore } from '../../store/useStore';
 import { Avatar } from '../common/Avatar';
@@ -16,6 +16,10 @@ const breadcrumbMap: Record<string, string> = {
   '/components': 'UI Components', '/settings': 'Settings',
 };
 
+interface TopNavProps {
+  onMenuClick?: () => void;
+}
+
 const dropdownStyle: React.CSSProperties = {
   background: 'rgba(12, 10, 35, 0.88)',
   backdropFilter: 'blur(40px) saturate(180%)',
@@ -25,7 +29,7 @@ const dropdownStyle: React.CSSProperties = {
   borderRadius: 18,
 };
 
-export function TopNav() {
+export function TopNav({ onMenuClick }: TopNavProps) {
   const navigate = useNavigate();
   const location = useLocation();
   const {
@@ -80,8 +84,12 @@ export function TopNav() {
   ];
 
   return (
-    <header className={`fixed top-0 right-0 ${ml} z-40 transition-all duration-300`}>
+    <header className={`app-topnav fixed top-0 right-0 ${ml} z-40 transition-all duration-300`}>
       <div className="px-5 py-3 flex items-center gap-3" style={navStyle}>
+
+        <button aria-label="Open navigation" onClick={onMenuClick} className="mobile-menu-button p-2 rounded-xl text-slate-200">
+          <Menu size={19} />
+        </button>
 
         {/* Breadcrumb */}
         <div className="flex items-center gap-1.5 text-sm flex-1 min-w-0">

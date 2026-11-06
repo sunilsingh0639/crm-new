@@ -4,10 +4,12 @@ import { Sidebar } from '../components/layout/Sidebar';
 import { TopNav } from '../components/layout/TopNav';
 import { useStore } from '../store/useStore';
 import { useEffect } from 'react';
+import { useState } from 'react';
 
 export function AppLayout() {
   const { sidebarCollapsed, theme } = useStore();
   const location = useLocation();
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme.theme);
@@ -23,6 +25,15 @@ export function AppLayout() {
       theme.cardSpacing === 'relaxed' ? '2rem' : '1.5rem'
     );
   }, [theme]);
+
+  useEffect(() => {
+    setMobileNavOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    document.body.style.overflow = mobileNavOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileNavOpen]);
 
   const ml = sidebarCollapsed ? 'ml-[72px]' : 'ml-[240px]';
 
@@ -81,8 +92,8 @@ export function AppLayout() {
 
       {/* ── Layout ── */}
       <div className="relative z-10">
-        <Sidebar />
-        <TopNav />
+        <Sidebar mobileOpen={mobileNavOpen} onClose={() => setMobileNavOpen(false)} />
+        <TopNav onMenuClick={() => setMobileNavOpen(true)} />
 
         <motion.main
           className={`${ml} pt-[64px] min-h-screen transition-all duration-300`}
